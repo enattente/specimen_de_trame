@@ -1,0 +1,611 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>specimen de procéder d'édition d'image numérique</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    
+</head>
+
+<header>
+    <p>
+        Ce site web regroupe en ensemble de processus de tramage. ils ont été codées <br>
+        à l'aide de P5.js. Ses trames ne sont pas basé sur une littérature scientifique rigoureuses, <br>
+        elles sont nait de jeux abstrait, de hasard et d'une envie de combiner <br>
+        chacune d'entre elle. <br>
+        Je travaille actuellement sur d'autre trame que j'espère pouvoir rendre disponible <br>
+        dans peu de temps. Vous êtes libre d'utiliser les images produites <br>
+        par les générateurs comme bon vous semble. Si vous le faite n'hésiter pas à me tagger <br>
+        <a href="https://www.instagram.com/etienne_loec/?next=%2Fetienne.loechner%2F" target="_blank" class="link">@etienneloec</a> ou à m'envoyer vos production à <a href="mailto:etienneloec@gmail.com" class="link">etienneloec@gmail.com</a> <br>
+        L'ensemble du code est accessible <a href="https://github.com/enattente" target="_blank" class="link">ici</a>. Si vous souhaiter plus de détail concernant les processus, <br>
+        j'ai ajouter des explication partielle des processus <span class="link" id="ici">ici</span>
+    </p>
+</header>
+
+<body>
+    <section id="tableau-arborescence">
+        <div class="hauteur_division_importante">
+            <p class="important_tableau">ensemble_des_processus_d_edition</p>
+            <div >
+                <p class="important_tableau">pavage_regulier</p>
+                <p class="important_tableau detail">Le programme parcours les images de gauches à droites et de bas en haut selon "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur). Pour le dire aurement: il réalise un quadrillage de l'image qu'il parcout ensuite.</p>
+                <div class="ligne_division">
+                    <div>
+                        <a href="/generateurs/variations/pavage_regulier_du_plan/pavage_regulier_rectangle-applat_couleur_moyenne/index.html" target="_blank" class="link important_tableau">
+                            applat_couleur_moyenne
+                        </a>
+                        <p class = "important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur), il réalise une moyenne et dessine à l'emplacement un rectangle qui à pour valeur cette moyenne.</p>
+                        <a href="/images/original/pavage_regulier_applat_couleur_moyenne.png" target="_blank">
+                            <img class="thumbnail" src="/images/zoom/zoom_pavage_regulier_applat_couleur_moyenne.png" alt="applat_couleur_moyenne" />
+                        </a>
+                    </div>
+                    <div>
+                        <p class="important_tableau">motif</p>
+                        <p class="important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) puis réalise une moyenne. Il consulte ensuite un registre "rules" qui associe pour chaque tranche de luminosité une valeur positif ou négatif. En fonction dee ce registre et de cette moyenne il choisit ou non de dessiner un motif.</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine une croix au milieux.</p>
+                                <a href="/generateurs/variations/pavage_regulier_du_plan/pavage_regulier_rectangle-cross-droite/index.html" target="_blank" class="link important_tableau">
+                                    croix_milieux_case
+                                </a>
+                                <a href="/images/original/pavage_regulier_motif_croix_milieux_case.png" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_pavage_regulier_motif_croix_milieux_case.png" alt="croix_milieux_case" />
+                                </a>
+                            </div>
+                            <div>
+                                <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine les diagonals du recatangle.</p>
+                                <a href="/generateurs/variations/pavage_regulier_du_plan/pavage_regulier_rectangle-cross-diagonal/index.html" target="_blank" class="link important_tableau">
+                                    cross_diagonal
+                                </a>
+                                <a href="/images/original/pavage_regulier_motif_diagonal_case.png" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_pavage_regulier_motif_diagonal_case.png" alt="cross_diagonal" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="important_tableau">densite_de_particule</p>
+                        <p class="important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) puis réalise une moyenne. Il consulte ensuite un registre "rules" qui associe pour chaque tranche de luminosité une quantité de particules. En fonction de ce registre et de cette moyenne il dessine dans la case une certaine quantité de particules.</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class="important_tableau detail">Les particules sont des pixels, leur taille est définie par "Taille des particules height" (hauteur) et "Taille des particules width" (largeur).</p>
+                                <a href="/generateurs/variations/pavage_regulier_du_plan/pavage_regulier_rectangle-densite_particules_pixel/index.html" target="_blank" class="link important_tableau">
+                                    pixel
+                                </a>
+                                <a href="/images/original/pavage_regulier_densite_de_particule_pixels.png" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_pavage_regulier_densite_de_particule_pixels.png" alt="pixels" />
+                                </a>
+                            </div>
+                            <div>
+                                <p class="important_tableau">orientation_dynamique</p>
+                                <p class="important_tableau detail">On garde en mémoire un registre "particules" de chaques particules et de leur emplacement. Ensuite on propose 3 options pour définir l'orientation des particules.<br>
+                                    1 - Rotation brightness qui établie un rapport entre la luminosité d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                    2 - Rotation détail qui établie un rapport entre la détail d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                    3 - Rotation noise qui produit une "map" (quadriallage) parallèle dans les dimensions à celle de l'image et la remplie de valeur aléatoire qui se suivent plus ou moins en fonction de "Noise angle level", fonction qui lisse plus ou moins les valeur. Ensuite, on établie un rapport entre les valeurs à un emplacement de cette maps et l'orientation d'une particule au même emplacement sur l'image.
+                                </p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">On dessines des points comme particules selon "Taille des particules height" (hauteur) et "Taille des particules width".</p>
+                                        <a href="/generateurs/variations/pavage_regulier_du_plan/pavage_regulier_rectangle-densite_particules_point-oriente/index.html" target="_blank" class="link important_tableau">
+                                            point
+                                        </a>
+                                        <a href="/images/original/pavage_regulier_densite_de_particule_orientation_dynamique_pointsV3.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_pavage_regulier_densite_de_particule_orientation_dynamique_pointsV3.png" alt="point" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="important_tableau">influence_automate_cellulaire</p>
+                        <p class="important_tableau detail">On considère chaque case du cadrillage comme les cases d'un automate cellulaire. On établit l'ensemble des configurations initiales et résultante, puis on classe l'ensemble des tables de transitions de celles possédant le plus de configurations résultante positive à celles en possèdant le moins. (Une tabble de transition décrit toutes les correspondances entre la configuration des cases à l'étape n et la nouvel configuration à n+1). De cette manière on obtient une echelle de valeur qu'on peut utiliser comme echelle de luminosité. 
+                        <div class="ligne_division">
+                            <div>
+                                <p class="important_tableau detail">On établit une correspondance entre les différents tables de transition et les zons de luminosité de l'image. On fait jouer un automate cellulaire pour qui les règles verient en fonction de la case.</p>
+                                <a href="/generateurs/variations/pavage_regulier_du_plan/pavage_regulier_influence_automate_cellulaire_wolframe_automata_2D/index.html" target="_blank" class="link important_tableau">
+                                    wolframe_automata_2D
+                                </a>
+                                <a href="/images/original/pavage_regulier_influence_automate_cellulaire_wolframe_automata_2D.png" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_pavage_regulier_influence_automate_cellulaire_wolframe_automata_2D.png" alt="wolframe_automata_2D" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <p class="important_tableau">exploration</p>
+                <p class="important_tableau detail">On vient déposer sur l'image un ensemble de fourmilles selon "point de départ", chaque itération les fourmilles font un enfant ou pas selon nb_childs, cette enfant se déplace en fonction des itinéraires disponible définie dans itinéraire et en évitant les emplacements déjà occupé par une fourmille dans profondeur_memoire, profondeur mémoire ne contient pas un nombre infini de mémoire. Quand une fourmille passe sur une case le programme traite la case.</p>
+                <div class="hauteur_division">
+                    <div>
+                        <p class="important_tableau">aleatoire</p>
+                        <p class="important_tableau">Les fourmille ne priviligie pas un chemin particulier.</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class = "important_tableau detail">Pour chaque case, le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedamment définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur), il réalise une moyenne et dessine à l'emplacement un rectangle qui à pour valeur cette moyenne.</p>
+                                <a href="/generateurs/variations/exploration/exploration-par_aleatoire-applat_couleur/index.html" target="_blank" class="link important_tableau" >
+                                    applat_couleur_moyenne
+                                </a>
+                                <a href="/images/original/exploration_aleatoire_applat_couleur_moyenne.jpg" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_exploration_aleatoire_applat_couleur_moyenne.png" alt="applat_couleur_moyenne" />
+                                </a>
+                            </div>
+                            <div>
+                                <p class="important_tableau">motif</p>
+                                <p class="important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) puis réalise une moyenne. Il consulte ensuite un registre "rules" qui associe pour chaque tranche de luminosité une valeur positif ou négatif. En fonction dee ce registre et de cette moyenne il choisit ou non de dessiner un motif.</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine une croix au milieux.</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_aleatoire-cross-droite/index.html" target="_blank" class="link important_tableau" >
+                                            croix_milieux_case
+                                        </a>
+                                        <a href="/images/original/exploration_aleatoire_motif_croix_milieux_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_aleatoire_motif_croix_milieux_case.png" alt="croix_milieux_case" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine les diagonals du recatangle.</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_aleatoire-cross-diagonal/index.html" target="_blank" class="link important_tableau" >
+                                            diagonal_case
+                                        </a>
+                                        <a href="/images/original/exploration_aleatoire_motif_diagonal_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_aleatoire_motif_diagonal_case.png" alt="diagonal_case" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">densite_de_particule</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Les particules sont des pixels, leur taille est définie par "Taille des particules height" (hauteur) et "Taille des particules width" (largeur).</p>
+                                        <a href="/index_not_working.html" target="_blank" class="link important_tableau" >
+                                            pixels
+                                        </a>
+                                        <p class="error">coming_soon</p>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau">orientation_dynamique</p>
+                                        <p class="important_tableau detail">On garde en mémoire un registre "particules" de chaques particules et de leur emplacement. Ensuite on propose 3 options pour définir l'orientation des particules.<br>
+                                            1 - Rotation brightness qui établie un rapport entre la luminosité d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            2 - Rotation détail qui établie un rapport entre la détail d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            3 - Rotation noise qui produit une "map" (quadriallage) parallèle dans les dimensions à celle de l'image et la remplie de valeur aléatoire qui se suivent plus ou moins en fonction de "Noise angle level", fonction qui lisse plus ou moins les valeur. Ensuite, on établie un rapport entre les valeurs à un emplacement de cette maps et l'orientation d'une particule au même emplacement sur l'image.
+                                        </p>
+                                        <div class="ligne_division">
+                                            <div>
+                                                <a href="/index_not_working.html" target="_blank" class="link important_tableau" >
+                                                    point
+                                                </a>
+                                                <p class="error">coming_soon</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                
+                                <p class="important_tableau">influence_automate_cellulaire</p>
+                                <p class="important_tableau detail">On considère chaque case du cadrillage comme les cases d'un automate cellulaire. On établit l'ensemble des configurations initiales et résultante, puis on classe l'ensemble des tables de transitions de celles possédant le plus de configurations résultante positive à celles en possèdant le moins. (Une tabble de transition décrit toutes les correspondances entre la configuration des cases à l'étape n et la nouvel configuration à n+1). De cette manière on obtient une echelle de valeur qu'on peut utiliser comme echelle de luminosité.
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">On établit une correspondance entre les différents tables de transition et les zons de luminosité de l'image. On fait jouer un automate cellulaire pour qui les règles verient en fonction de la case.</p>
+                                        <a href="/index_not_working.html" target="_blank" class="link important_tableau" >
+                                            wolframe_automata_2D
+                                        </a>
+                                        <p class="error">coming_soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="important_tableau">guidee_par_frequence_detail</p>
+                        <p class="important_tableau">Les fourmille priviligient les zones de l'image avec beaucoup de détails.</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class = "important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur), il réalise une moyenne et dessine à l'emplacement un rectangle qui à pour valeur cette moyenne.</p>
+                                <a href="/generateurs/variations/exploration/exploration-par_detail-applat_couleur/index.html" target="_blank" class="link important_tableau" >
+                                    applat_couleur_moyenne
+                                </a>
+                                <a href="/images/original/exploration_guidee_par_frequence_detail_applat_couleur_moyenne.jpg" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_frequence_detail_applat_couleur_moyenne.png" alt="applat_couleur_moyenne" />
+                                </a>
+                            </div>
+                            <div>
+                                <p class="important_tableau">motif</p>
+                                <p class="important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) puis réalise une moyenne. Il consulte ensuite un registre "rules" qui associe pour chaque tranche de luminosité une valeur positif ou négatif. En fonction dee ce registre et de cette moyenne il choisit ou non de dessiner un motif.</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine une croix au milieux.</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_detail-cross-droite/index.html" target="_blank" class="link important_tableau" >
+                                            croix_milieux_case
+                                        </a>
+                                        <a href="/images/original/exploration_guidee_par_frequence_detail_motif_croix_milieux_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_frequence_detail_motif_croix_milieux_case.png" alt="croix_milieux_case" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine les diagonals du recatangle.</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_detail-cross-diagonal/" target="_blank" class="link important_tableau" >
+                                            diagonal_case
+                                        </a>
+                                        <a href="/images/original/exploration_guidee_par_frequence_detail_motif_diagonal_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_frequence_detail_motif_diagonal_case.png" alt="diagonal_case" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">densite_de_particule</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Les particules sont des pixels, leur taille est définie par "Taille des particules height" (hauteur) et "Taille des particules width" (largeur).</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_aleatoire-densite_particules-pixels/index.html" target="_blank" class="link important_tableau" >
+                                            pixels
+                                        </a>
+                                        <a href="/images/original/exploration_guidee_par_frequence_detail_densite_de_particule_pixels.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_frequence_detail_densite_de_particule_pixels.png" alt="pixels" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau">orientation_dynamique</p>
+                                        <p class="important_tableau detail">On garde en mémoire un registre "particules" de chaques particules et de leur emplacement. Ensuite on propose 3 options pour définir l'orientation des particules.<br>
+                                            1 - Rotation brightness qui établie un rapport entre la luminosité d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            2 - Rotation détail qui établie un rapport entre la détail d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            3 - Rotation noise qui produit une "map" (quadriallage) parallèle dans les dimensions à celle de l'image et la remplie de valeur aléatoire qui se suivent plus ou moins en fonction de "Noise angle level", fonction qui lisse plus ou moins les valeur. Ensuite, on établie un rapport entre les valeurs à un emplacement de cette maps et l'orientation d'une particule au même emplacement sur l'image.
+                                        </p>                                        
+                                        <div class="ligne_division">
+                                            <div>
+                                                <a href="index_not_working.html" target="_blank" class="link important_tableau" >
+                                                    point
+                                                </a>
+                                                <p class="error">coming_soon</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">influence_automate_cellulaire</p>
+                                <p class="important_tableau detail">On considère chaque case du cadrillage comme les cases d'un automate cellulaire. On établit l'ensemble des configurations initiales et résultante, puis on classe l'ensemble des tables de transitions de celles possédant le plus de configurations résultante positive à celles en possèdant le moins. (Une tabble de transition décrit toutes les correspondances entre la configuration des cases à l'étape n et la nouvel configuration à n+1). De cette manière on obtient une echelle de valeur qu'on peut utiliser comme echelle de luminosité.
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">On établit une correspondance entre les différents tables de transition et les zons de luminosité de l'image. On fait jouer un automate cellulaire pour qui les règles verient en fonction de la case.</p>
+                                        <a href="index_not_working.html" target="_blank" class="link important_tableau" >
+                                            wolframe_automata_2D
+                                        </a>
+                                        <p class="error">coming_soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="important_tableau">guidee_par_luminosite</p>
+                        <p class="important_tableau">Les fourmille priviligient les zones de l'image les plus sombres.</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class = "important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur), il réalise une moyenne et dessine à l'emplacement un rectangle qui à pour valeur cette moyenne.</p>
+                                <a href="/generateurs/variations/exploration/exploration-par_luminosite-applat_couleur/index.html" target="_blank" class="link important_tableau" >
+                                    applat_couleur_moyenne
+                                </a>
+                                <a href="/images/original/exploration_guidee_par_luminosite_applat_couleur_moyenne.jpg" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_luminosite_applat_couleur_moyenne.png" alt="applat_couleur_moyenne" />
+                                </a>
+                            </div>
+                            <div>
+                                <p class="important_tableau">motif</p>
+                                <p class="important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) puis réalise une moyenne. Il consulte ensuite un registre "rules" qui associe pour chaque tranche de luminosité une valeur positif ou négatif. En fonction dee ce registre et de cette moyenne il choisit ou non de dessiner un motif.</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine une croix au milieux.</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_luminosite-cross-droite/index.html" target="_blank" class="link important_tableau" >
+                                            croix_milieux_case
+                                        </a>
+                                        <a href="/images/original/exploration_guidee_par_luminosite_motif_croix_milieux_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_luminosite_motif_croix_milieux_case.png" alt="croix_milieux_case" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine les diagonals du recatangle.</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_luminosite-cross-diagonal/index.html" target="_blank" class="link important_tableau" >
+                                            diagonal_case
+                                        </a>
+                                        <a href="/images/original/exploration_guidee_par_luminosite_motif_diagonal_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_luminosite_motif_diagonal_case.png" alt="diagonal_case" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">densite_de_particule</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Les particules sont des pixels, leur taille est définie par "Taille des particules height" (hauteur) et "Taille des particules width" (largeur).</p>
+                                        <a href="/generateurs/variations/exploration/exploration-par_luminosite-densite_particules-pixels/index.html" target="_blank" class="link important_tableau" >
+                                            pixels
+                                        </a>
+                                        <a href="/images/original/exploration_guidee_par_luminosite_densite_de_particule_pixel.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_luminosite_densite_de_particule_pixel.png" alt="pixels" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau">orientation_dynamique</p>
+                                        <p class="important_tableau detail">On garde en mémoire un registre "particules" de chaques particules et de leur emplacement. Ensuite on propose 3 options pour définir l'orientation des particules.<br>
+                                            1 - Rotation brightness qui établie un rapport entre la luminosité d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            2 - Rotation détail qui établie un rapport entre la détail d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            3 - Rotation noise qui produit une "map" (quadriallage) parallèle dans les dimensions à celle de l'image et la remplie de valeur aléatoire qui se suivent plus ou moins en fonction de "Noise angle level", fonction qui lisse plus ou moins les valeur. Ensuite, on établie un rapport entre les valeurs à un emplacement de cette maps et l'orientation d'une particule au même emplacement sur l'image.
+                                        </p>
+                                        <div class="ligne_division">
+                                            <div>
+                                                <a href="/generateurs/variations/exploration/exploration-par_luminosite-densite_particules-ellipse_oriente/index.html" target="_blank" class="link important_tableau" >
+                                                    point
+                                                </a>
+                                                <a href="/images/original/exploration_guidee_par_luminosite_densite_de_particule_orientation_dynamique_point.png" target="_blank">
+                                                    <img class="thumbnail" src="/images/zoom/zoom_exploration_guidee_par_luminosite_densite_de_particule_orientation_dynamique_point.png" alt="point" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">influence_automate_cellulaire</p>
+                                <p class="important_tableau detail">On considère chaque case du cadrillage comme les cases d'un automate cellulaire. On établit l'ensemble des configurations initiales et résultante, puis on classe l'ensemble des tables de transitions de celles possédant le plus de configurations résultante positive à celles en possèdant le moins. (Une tabble de transition décrit toutes les correspondances entre la configuration des cases à l'étape n et la nouvel configuration à n+1). De cette manière on obtient une echelle de valeur qu'on peut utiliser comme echelle de luminosité.
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">On établit une correspondance entre les différents tables de transition et les zons de luminosité de l'image. On fait jouer un automate cellulaire pour qui les règles verient en fonction de la case.</p>
+                                        <a href="index_not_working.html" target="_blank" class="link important_tableau" >
+                                            wolframe_automata_2D
+                                        </a>
+                                        <p class="error">coming_soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <p class="important_tableau">subdivision_recursive</p>
+                <p class="important_tableau detail">On divise récursivement l'image en sous-régions jusqu'à atteindre un certain niveau de détail. la plus petite unité est définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) tandis que le niveaux de profondeur est définie par "deep" (profondeur) </p>
+                <div class="hauteur_division">
+                    <!-- <div>
+                        <p class="important_tableau">aleatoire</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class="important_tableau">applat_couleur_moyenne</p>
+                                <p>image</p>
+                            </div>
+                            <div>
+                                <p class="important_tableau">motif</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau">croix_milieux_case</p>
+                                        <p>image</p>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau">diagonal_case</p>
+                                        <p>image</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">densite_de_particule</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau">pixels</p>
+                                        <p>image</p>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau">orientation_dynamique</p>
+                                        <div class="ligne_division">
+                                            <div>
+                                                <p class="important_tableau">point</p>
+                                                <p>image</p>
+                                            </div>
+                                            <div>
+                                                <p class="important_tableau">rectangle</p>
+                                                <p>image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">influence_automate_cellulaire</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau">wolframe_automata_2D</p>
+                                        <p>image</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div>
+                        <p class="important_tableau">guidee_par_frequence_detail</p>
+                        <p class="important_tableau detail">On établit une correspondance entre le niveau de détail d'une zone et le choix de la diviser</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class = "important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur), il réalise une moyenne et dessine à l'emplacement un rectangle qui à pour valeur cette moyenne.</p>
+                                <a href="/generateurs/variations/subdivision_recursive/subdivison-par_detail-applat_couleur/index.html" target="_blank" class="link important_tableau">
+                                    applat_couleur_moyenne
+                                </a>
+                                <a href="/images/original/subdivision_recursive_guidee_par_detail_applat_couleur_moyenne.jpg" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_detail_applat_couleur_moyenne.png" alt="applat_couleur_moyenne" />
+                                </a>
+                            </div>
+                            <div>
+                                <p class="important_tableau">motif</p>
+                                <p class="important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) puis réalise une moyenne. Il consulte ensuite un registre "rules" qui associe pour chaque tranche de luminosité une valeur positif ou négatif. En fonction dee ce registre et de cette moyenne il choisit ou non de dessiner un motif.</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine une croix au milieux.</p>
+                                        <a href="/generateurs/variations/subdivision_recursive/subdivison-par_detail-cross-droite/index.html" target="_blank" class="link important_tableau">
+                                            croix_milieux_case
+                                        </a>
+                                        <a href="/images/original/subdivision_recursive_guidee_par_detail_motif_croix_milieux_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_detail_motif_croix_milieux_case.png" alt="croix_milieux_case" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine les diagonals du recatangle.</p>
+                                        <a href="/generateurs/variations/subdivision_recursive/subdivison-par_detail-cross-diagonal/index.html" target="_blank" class="link important_tableau">
+                                            diagonal_case
+                                        </a>
+                                        <a href="/images/original/subdivision_recursive_guidee_par_detail_motif_diagonal_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_detail_motif_diagonal_case.png" alt="diagonal_case" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">densite_de_particule</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Les particules sont des pixels, leur taille est définie par "Taille des particules height" (hauteur) et "Taille des particules width" (largeur).</p>
+                                        <a href="/generateurs/variations/subdivision_recursive/subdivison-par_detail-densite_particules-pixels/index.html" target="_blank" class="link important_tableau">
+                                            pixels
+                                        </a>
+                                        <a href="/images/original/subdivision_recursive_guidee_par_detail_densite_de_particule_pixel.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_detail_densite_de_particule_pixel.png" alt="pixels" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau">orientation_dynamique</p>
+                                        <p class="important_tableau detail">On garde en mémoire un registre "particules" de chaques particules et de leur emplacement. Ensuite on propose 3 options pour définir l'orientation des particules.<br>
+                                            1 - Rotation brightness qui établie un rapport entre la luminosité d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            2 - Rotation détail qui établie un rapport entre la détail d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            3 - Rotation noise qui produit une "map" (quadriallage) parallèle dans les dimensions à celle de l'image et la remplie de valeur aléatoire qui se suivent plus ou moins en fonction de "Noise angle level", fonction qui lisse plus ou moins les valeur. Ensuite, on établie un rapport entre les valeurs à un emplacement de cette maps et l'orientation d'une particule au même emplacement sur l'image.
+                                        </p>
+                                        <div class="ligne_division">
+                                            <div>
+                                                <a href="/generateurs/variations/subdivision_recursive/subdivison-par_detail-densite_particules_ellipse-oriente/index.html" target="_blank" class="link important_tableau">
+                                                    point
+                                                </a>
+                                                <a href="/images/original/subdivision_recursive_guidee_par_detail_densite_de_particule_orientation_dynamique_point.png" target="_blank">
+                                                    <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_detail_densite_de_particule_orientation_dynamique_point.png" alt="point" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">influence_automate_cellulaire</p>
+                                <p class="important_tableau detail">On considère chaque case du cadrillage comme les cases d'un automate cellulaire. On établit l'ensemble des configurations initiales et résultante, puis on classe l'ensemble des tables de transitions de celles possédant le plus de configurations résultante positive à celles en possèdant le moins. (Une tabble de transition décrit toutes les correspondances entre la configuration des cases à l'étape n et la nouvel configuration à n+1). De cette manière on obtient une echelle de valeur qu'on peut utiliser comme echelle de luminosité.
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">On établit une correspondance entre les différents tables de transition et les zons de luminosité de l'image. On fait jouer un automate cellulaire pour qui les règles verient en fonction de la case.</p>
+                                        <a href="index_not_working.html" target="_blank" class="link important_tableau">
+                                            wolframe_automata_2D
+                                        </a>
+                                        <p class="error">coming_soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="important_tableau">guidee_par_luminosite</p>
+                        <p class="important_tableau detail">On établit une correspondance entre le niveau de luminosité d'une zone et le choix de la diviser</p>
+                        <div class="ligne_division">
+                            <div>
+                                <p class = "important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur), il réalise une moyenne et dessine à l'emplacement un rectangle qui à pour valeur cette moyenne.</p>
+                                <a href="/generateurs/variations/subdivision_recursive/subdivison-par_luminosite-applat_couleur/index.html" target="_blank" class="link important_tableau">
+                                    applat_couleur_moyenne
+                                </a>
+                                <a href="/images/original/subdivision_recursive_guidee_par_luminosite_applat_couleur_moyenne.jpg" target="_blank">
+                                    <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_luminosite_applat_couleur_moyenne.png" alt="applat_couleur_moyenne" />
+                                </a>
+                            </div>
+                            <div>
+                                <p class="important_tableau">motif</p>
+                                <p class="important_tableau detail">A chaque step (étape) le programme récupère les valeurs de chaque pixels contenus dans le rectangle précedemenne définie par "Stepsize-width" (la largeur) et "Stepsize-height" (la hauteur) puis réalise une moyenne. Il consulte ensuite un registre "rules" qui associe pour chaque tranche de luminosité une valeur positif ou négatif. En fonction dee ce registre et de cette moyenne il choisit ou non de dessiner un motif.</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine une croix au milieux.</p>
+                                        <a href="/generateurs/variations/subdivision_recursive/subdivison-par_luminosite-cross-droite/index.html" target="_blank" class="link important_tableau">
+                                            croix_milieux_case
+                                        </a>
+                                        <a href="/images/original/subdivision_recursive_guidee_par_luminosite_motif_croix_milieux_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_luminosite_motif_croix_milieux_case.png" alt="croix_milieux_case" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau detail">Si la valeur est positif en fontion de "line_thickness" (l'épaisseur de ligne) le programme dessine les diagonals du recatangle.</p>
+                                        <a href="/generateurs/variations/subdivision_recursive/subdivison-par_luminosite-cross-diagonal/index.html" target="_blank" class="link important_tableau">
+                                            diagonal_case
+                                        </a>
+                                        <a href="/images/original/subdivision_recursive_guidee_par_luminosite_motif_diagonale_case.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_luminosite_motif_diagonale_case.png" alt="diagonal_case" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">densite_de_particule</p>
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">Les particules sont des pixels, leur taille est définie par "Taille des particules height" (hauteur) et "Taille des particules width" (largeur).</p>
+                                        <a href="/generateurs/variations/subdivision_recursive/subdivison-par_luminosite-densite-particules_pixels/index.html" target="_blank" class="link important_tableau">
+                                            pixels
+                                        </a>
+                                        <a href="/images/original/subdivision_recursive_guidee_par_luminosite_densite_de_particule_pixel.png" target="_blank">
+                                            <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_luminosite_densite_de_particule_pixel.png" alt="pixels" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="important_tableau">orientation_dynamique</p>
+                                        <p class="important_tableau detail">On garde en mémoire un registre "particules" de chaques particules et de leur emplacement. Ensuite on propose 3 options pour définir l'orientation des particules.<br>
+                                            1 - Rotation brightness qui établie un rapport entre la luminosité d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            2 - Rotation détail qui établie un rapport entre la détail d'une zone de l'image qui contient une particule et l'orientation de cette même particule.<br>
+                                            3 - Rotation noise qui produit une "map" (quadriallage) parallèle dans les dimensions à celle de l'image et la remplie de valeur aléatoire qui se suivent plus ou moins en fonction de "Noise angle level", fonction qui lisse plus ou moins les valeur. Ensuite, on établie un rapport entre les valeurs à un emplacement de cette maps et l'orientation d'une particule au même emplacement sur l'image.
+                                        </p>
+                                        <div class="ligne_division">
+                                            <div>
+                                                <a href="/generateurs/variations/subdivision_recursive/subdivison-par_luminosite-densite_particules_ellipse-oriente/index.html" target="_blank" class="link important_tableau">
+                                                    point
+                                                </a>
+                                                <a href="/images/original/subdivision_recursive_guidee_par_luminosite_densite_de_particule_orientation_dynamique_point.png" target="_blank">
+                                                    <img class="thumbnail" src="/images/zoom/zoom_subdivision_recursive_guidee_par_luminosite_densite_de_particule_orientation_dynamique_point.png" alt="point" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="important_tableau">influence_automate_cellulaire</p>
+                                <p class="important_tableau detail">On considère chaque case du cadrillage comme les cases d'un automate cellulaire. On établit l'ensemble des configurations initiales et résultante, puis on classe l'ensemble des tables de transitions de celles possédant le plus de configurations résultante positive à celles en possèdant le moins. (Une tabble de transition décrit toutes les correspondances entre la configuration des cases à l'étape n et la nouvel configuration à n+1). De cette manière on obtient une echelle de valeur qu'on peut utiliser comme echelle de luminosité.
+                                <div class="ligne_division">
+                                    <div>
+                                        <p class="important_tableau detail">On établit une correspondance entre les différents tables de transition et les zons de luminosité de l'image. On fait jouer un automate cellulaire pour qui les règles verient en fonction de la case.</p>
+                                        <a href="index_not_working.html" target="_blank" class="link important_tableau">
+                                            wolframe_automata_2D
+                                        </a>
+                                        <p class="error">coming_soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="js/script.js"></script>
+
+<footer>
+    <p class="petit_texte">licence GPL v3</p>
+</footer>
+
+</html>

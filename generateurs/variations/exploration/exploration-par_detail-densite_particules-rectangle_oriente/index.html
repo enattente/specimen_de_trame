@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device=width, initial-scale=1.0">
+        <title>subdivision_recursive - par_luminosite - densite_particules - rectangle - oriente</title>
+
+        <link rel="stylesheet" type="text/css" href="../../../style.css">
+
+        <script src="../../../libraries/p5.min.js"></script>
+        <script src="../../../libraries/p5.sound.min.js"></script>
+    </head>
+    <body>
+        <script src="../../../class/area.js"></script>
+        <script src="../../../class/map_image.js"></script>
+        <script src="../../../class/rules.js"></script>
+        <script src="../../../class/registre_area_visited.js"></script>
+        <script src="../../../class/registre_generations.js"></script>
+        <script src="../../../class/navigation.js"></script>
+        <script src="../../../class/data.js"></script>
+        <script src="../../../class/particule.js"></script>
+        <script src="../../../class_interface/miniature.js"></script>
+        <script src="../../../class_interface/niveau.js"></script>
+        <script src="../../../class_interface/slider.js"></script>
+
+        <script src="interface.js"></script>
+        <script src="interface_seuils.js"></script>
+        <script src="sketch.js"></script>
+        
+
+        <div id="top">
+            <div id="visionneuse">
+            </div>
+            <div id="parametres-generaux">
+              <h1>Paramètres</h1>
+              <div id="image-display">
+              </div>
+              <!-- Parcourir images -->
+                <p>Charger l'image</p>
+              <input type="file" id="image-loader" accept="image/*"><br>
+
+              <!-- Stepsize -->
+                <p>Stepsize-width</p>
+                <input id="stepsize-width-input" type="number" min="1" value="10"> <br>
+
+                <p>Stepsize-height</p>
+                <input id="stepsize-height-input" type="number" min="1" value="10"> <br>
+
+                <!-- deep -->
+                <p>Deep</p>
+                <input id="deep-input" type="number" min="1" value="5"> <br>
+                <!-- profondeur de la mémoire -->
+                <p>Profondeur de la mémoire</p>
+                <input id="profondeur-memoire-input" type="number" min="1" value="5000"> <br>
+
+                <!-- nb value -->
+                <p>Nombre de règles</p>
+                <input id="nb-value-input" type="number" min="1" value="5"> <br>
+
+                <!-- nb particules -->
+                <p>Nombre max de particule par case</p>
+                <input id="nb-particules-max-input" type="number" min="0" value="100"> <br>
+
+                <p>Nombre min de particule par case</p>
+                <input id="nb-particules-min-input" type="number" min="0" value="0"> <br>
+
+                <!-- Taille des particules -->
+                <p>Taille des particules height</p>
+                <input id="particle-height-input" type="number" min="1" value="1"> <br>
+
+                <p>Taille des particules width</p>
+                <input id="particle-width-input" type="number" min="1" value="1"> <br>
+
+                <p>Noise angle level</p>
+                <input id="noise-angle-level-input" type="number" min="0" value="0.0001"> <br>
+
+          
+                <button id="rotation-particules-brightness-btn"> Rotation brightness</button> <br>
+
+                <button id="rotation-particules-detail-btn"> Rotation detail</button> <br>
+
+                <button id="rotation-particules-noise-btn"> Rotation noise</button> <br>
+
+
+                 <!-- define départ -->
+               <div>
+                <p>1 = départ, 0 = vide</p>
+                <textarea id="depart-liste" rows="5" style="width: 100%; white-space: pre; font-family: monospace;"></textarea>
+                <button id="depart-update-btn">Mettre à jour les points de departs</button>
+              </div>
+
+              <!-- define itineraire -->
+              <div>
+                <p>déplacement horizontal, déplacement vertical, probabilité</p>
+                <textarea id="itineraires-liste" rows="5" style="width: 100%; white-space: pre; font-family: monospace;"></textarea>
+                <button id="itineraires-update-btn">Mettre à jour les itineraires</button>
+              </div>
+
+              <div>
+                <p>déplacement horizontal, déplacement vertical, probabilité</p>
+                <textarea id="nb_childs-liste" rows="5" style="width: 100%; white-space: pre; font-family: monospace;"></textarea>
+                <button  id="nb_childs-update-btn">Mettre à jour nb_childs</button>
+              </div>
+
+              
+              <!-- Nombre d'étapes -->
+              <p>Nombre d'étapes de génération</p>
+              <input id="etapes-input" type="number" min="1" value="25"> <br>
+
+              <!-- retset Seuils -->
+              <button id="reset-seuils-btn">reset seuils</button>
+
+               <!-- retset Seuils -->
+              <button id="reset-rules-btn">reset rules</button>
+
+              <!-- Génération -->
+              <button id="generer-btn">Générer</button>
+
+              <!-- Save image -->
+              <button id="save-btn">Save</button>
+
+              <!-- export parametre -->
+              <button id="save-btn-parametre">Save paramètres</button>
+
+              <!-- import parametre -->
+              <div>
+                <input type="file" id="import-parametre" accept=".txt" style="display: none;">
+                <button id="import-btn-parametre">Importer paramètres</button>
+              </div>
+
+            </div>
+        </div>
+        <div id="bottom">
+          <div id="interface-seuils-map_image">
+          </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wolfram Automata Tramer</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="libraries/p5.min.js"></script>
+        <script src="libraries/p5.sound.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    </head>
+    <body>
+        <script src="class/rules.js"></script>
+        <script src="class/case.js"></script>
+        <script src="class/map_image.js"></script>
+        <script src="class/data.js"></script>
+        
+        <script src="interface.js"></script>
+        <script src="interface_seuil.js"></script>
+
+        <script src="sketch.js"></script>
+
+        <div id="top">
+            <div id="visionneuse">
+            </div>
+            <div id="parametres-generaux">
+            <h1>parametre</h1>
+
+                <!-- Parcourir images -->
+                <input type="file" id="image-loader" accept="image/*">
+
+                <!-- Stepsize -->
+                <!-- <button id="stepsize-minus">-</button>
+                <span id="stepsize-value">1</span>
+                <button id="stepsize-plus">+</button> -->
+
+                <label for="stepsize-input">Step Size:</label>
+                <input type="number" id="stepsize-input" step="0.1" value="10">
+
+                <!-- Scale factor -->
+                <label for="scale-factor-input">Scale Factor:</label>
+                <input type="number" id="scale-factor-input" step="0.1" value="1">
+                
+                <!-- start record-->
+                <button id="start-record-btn">start record</button>
+
+                <!-- save record-->
+                <button id="stop-record-btn">stop record</button>
+                     
+                
+                <!-- Génération -->
+                <button id="generer-btn">Générer</button> <br>
+
+                <!-- Save image -->
+                <button id="save-btn">Save</button>
+                
+                <input type="file" id="batch-folder" webkitdirectory directory multiple>
+                <button id="batch-start">Batch Tramer</button>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="rules-vertical">
+                <p>
+                <strong>règle retournant 0 bits de 1</strong><br>
+                règle: <span id="rule0-value">0</span><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule0-value-bits">_0_ _0_ _0_ _0_ _0_ _0_ _0_ _0_</span>
+                </p>  
+                <p>
+                <strong>règle retournant 1 bits de 1</strong><br>
+                règle: <span id="rule1-value">-</span>
+                <button id="rules1-button-plus">+</button>
+                <button id="rules1-button-moins">-</button><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule1-value-bits">-</span>
+                </p>  
+                <p>
+                <strong>règle retournant 2 bits de 1</strong><br>
+                règle: <span id="rule2-value">-</span>
+                <button id="rules2-button-plus">+</button>
+                <button id="rules2-button-moins">-</button><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule2-value-bits">-</span>
+                </p>    
+                <p>
+                <strong>règle retournant 3 bits de 1</strong><br>
+                règle: <span id="rule3-value">-</span>
+                <button id="rules3-button-plus">+</button>
+                <button id="rules3-button-moins">-</button><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule3-value-bits">-</span>
+                </p>    
+                <p>
+                <strong>règle retournant 4 bits de 1</strong><br>
+                règle: <span id="rule4-value">-</span>
+                <button id="rules4-button-plus">+</button>
+                <button id="rules4-button-moins">-</button><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule4-value-bits">-</span>
+                </p>    
+                <p>
+                <strong>règle retournant 5 bits de 1</strong><br>
+                règle: <span id="rule5-value">-</span>
+                <button id="rules5-button-plus">+</button>
+                <button id="rules5-button-moins">-</button><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule5-value-bits">-</span>
+                </p>    
+                <p>
+                <strong>règle retournant 6 bits de 1</strong><br>
+                règle: <span id="rule6-value">-</span>
+                <button id="rules6-button-plus">+</button>
+                <button id="rules6-button-moins">-</button><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule6-value-bits">-</span>
+                </p>    
+                <p>
+                <strong>règle retournant 7 bits de 1</strong><br>
+                règle: <span id="rule7-value">-</span>
+                <button id="rules7-button-plus">+</button>
+                <button id="rules7-button-moins">-</button><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule7-value-bits">-</span>
+                </p>
+                <p>
+                <strong>règle retournant 8 bits de 1</strong><br>
+                règle: <span id="rule8-value">255</span><br>
+                000 001 010 011 100 101 110 111 <br>
+                <span id="rule8-value-bits">_1_ _1_ _1_ _1_ _1_ _1_ _1_ _1_</span>
+                </p>
+            </div>
+            <div id="seuil-vertical">
+            </div>
+            <div id="zone-2D">
+                                <div id="rule-horizontal">
+                    <p>
+                    <strong>règle retournant 0 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal0-value">0</span><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal0-value-bits">_0_ _0_ _0_ _0_ _0_ _0_ _0_ _0_</span>
+                    </p>  
+                    <p>
+                    <strong>règle retournant 1 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal1-value">-</span>
+                    <button id="rule-horizontals1-button-plus">+</button>
+                    <button id="rule-horizontals1-button-moins">-</button><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal1-value-bits">-</span>
+                    </p>  
+                    <p>
+                    <strong>règle retournant 2 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal2-value">-</span>
+                    <button id="rule-horizontals2-button-plus">+</button>
+                    <button id="rule-horizontals2-button-moins">-</button><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal2-value-bits">-</span>
+                    </p>    
+                    <p>
+                    <strong>règle retournant 3 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal3-value">-</span>
+                    <button id="rule-horizontals3-button-plus">+</button>
+                    <button id="rule-horizontals3-button-moins">-</button><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal3-value-bits">-</span>
+                    </p>    
+                    <p>
+                    <strong>règle retournant 4 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal4-value">-</span>
+                    <button id="rule-horizontals4-button-plus">+</button>
+                    <button id="rule-horizontals4-button-moins">-</button><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal4-value-bits">-</span>
+                    </p>    
+                    <p>
+                    <strong>règle retournant 5 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal5-value">-</span>
+                    <button id="rule-horizontals5-button-plus">+</button>
+                    <button id="rule-horizontals5-button-moins">-</button><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal5-value-bits">-</span>
+                    </p>    
+                    <p>
+                    <strong>règle retournant 6 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal6-value">-</span>
+                    <button id="rule-horizontals6-button-plus">+</button>
+                    <button id="rule-horizontals6-button-moins">-</button><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal6-value-bits">-</span>
+                    </p>    
+                    <p>
+                    <strong>règle retournant 7 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal7-value">-</span>
+                    <button id="rule-horizontals7-button-plus">+</button>
+                    <button id="rule-horizontals7-button-moins">-</button><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal7-value-bits">-</span>
+                    </p>
+                    <p>
+                    <strong>règle retournant 8 bits de 1</strong><br>
+                    règle: <span id="rule-horizontal8-value">255</span><br>
+                    000 001 010 011 100 101 110 111 <br>
+                    <span id="rule-horizontal8-value-bits">_1_ _1_ _1_ _1_ _1_ _1_ _1_ _1_</span>
+                    </p>
+                </div>
+                <div id="seuil-horizontal">
+                </div>
+
+                <div id="representation-2D">
+                    <p>Representation 2D (reste)</p>
+                </div>
+
+                <div id="parametre-2D">
+                    <p>Paramètre 2D (1/10 largeur)</p>
+                </div>
+                
+
+
+            </div>
+        </div>
+    </body>
+</html>

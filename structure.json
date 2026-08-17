@@ -1,0 +1,215 @@
+{
+  "pavage_regulier": {
+    "applat_couleur_moyenne": {
+      "link": ""
+    },
+    "motif": {
+      "croix_milieux_case": {
+        "link": ""
+      },
+      "cross_diagonal": {
+        "link": ""
+      }
+    },
+    "densite_de_particule": {
+      "pixels": {
+        "link": ""
+      },
+      "point_avec_orientation_dynamique": {
+        "link": ""
+      },
+      "rectangle_avec_orientation_dynamique": {
+        "link": ""
+      }
+    },
+    "influence_automate_cellulaire": {
+      "wolframe_automata_2D": {
+        "link": ""
+      }
+    }
+  },
+
+  "exploration": {
+    "aleatoire": {
+      "applat_couleur_moyenne": {
+        "link": ""
+      },
+      "motif": {
+        "croix_milieu": {
+          "link": ""
+        },
+        "diagonal_case": {
+          "link": ""
+        }
+      },
+      "densite_de_particule": {
+        "pixels": {
+          "link": ""
+        },
+        "point_avec_orientation_dynamique": {
+          "link": ""
+        },
+        "rectangle_avec_orientation_dynamique": {
+          "link": ""
+        }
+      },
+      "influence_automate_cellulaire": {
+        "wolframe_automata_2D": {
+          "link": ""
+        }
+      }
+    },
+
+    "guidee_par_frequence_detail": {
+      "applat_couleur_moyenne": {
+        "link": ""
+      },
+      "motif": {
+        "croix_milieux_case": {
+          "link": ""
+        },
+        "diagonal_case": {
+          "link": ""
+        }
+      },
+      "densite_de_particule": {
+        "pixels": {
+          "link": ""
+        },
+        "point_avec_orientation_dynamique": {
+          "link": ""
+        },
+        "rectangle_avec_orientation_dynamique": {
+            "link": ""
+          }
+      },
+      "influence_automate_cellulaire": {
+        "wolframe_automata_2D": {
+          "link": ""
+        }
+      }
+    },
+
+    "guidee_par_luminosite": {
+      "applat_couleur_moyenne": {
+        "link": ""
+      },
+      "motif": {
+        "croix_milieux_case": {
+          "link": ""
+        },
+        "diagonal_case": {
+          "link": ""
+        }
+      },
+      "densite_de_particule": {
+        "pixels": {
+          "link": ""
+        },
+        "point_avec_orientation_dynamique": {
+          "link": ""
+        },
+        "rectangle_avec_orientation_dynamique": {
+          "link": ""
+        }
+      },
+      "influence_automate_cellulaire": {
+        "wolframe_automata_2D": {
+          "link": ""
+        }
+      }
+    }
+  },
+
+  "subdivision_recursive": {
+    "aleatoire": {
+      "applat_couleur_moyenne": {
+        "link": ""
+      },
+      "motif": {
+        "croix_milieux_case": {
+          "link": ""
+        },
+        "diagonal_case": {
+          "link": ""
+        }
+      },
+      "densite_de_particule": {
+        "pixels": {
+          "link": ""
+        },
+        "point_avec_orientation_dynamique": {
+          "link": ""
+        },
+        "rectangle_avec_orientation_dynamique": {
+          "link": ""
+        }
+      },
+      "influence_automate_cellulaire": {
+        "wolframe_automata_2D": {
+          "link": ""
+        }
+      }
+    },
+
+    "guidee_par_frequence_detail": {
+      "applat_couleur_moyenne": {
+        "link": ""
+      },
+      "motif": {
+        "croix_milieux_case": {
+          "link": ""
+        },
+        "diagonal_case": {
+          "link": ""
+        }
+      },
+      "densite_de_particule": {
+        "pixels": {
+          "link": ""
+        },
+        "point_avec_orientation_dynamique": {
+          "link": ""
+        },
+        "rectangle_avec_orientation_dynamique": {
+          "link": ""
+        }
+      },
+      "influence_automate_cellulaire": {
+        "wolframe_automata_2D": {
+          "link": ""
+        }
+      }
+    },
+
+    "guidee_par_luminosite": {
+      "applat_couleur_moyenne": {
+        "link": ""
+      },
+      "motif": {
+        "croix_milieux_case": {
+          "link": ""
+        },
+        "diagonal_case": {
+          "link": ""
+        }
+      },
+      "densite_de_particule": {
+        "pixels": {
+          "link": ""
+        },
+        "point_avec_orientation_dynamique": {
+          "link": ""
+        },
+        "rectangle_avec_orientation_dynamique": {
+          "link": ""
+        }
+      },
+      "influence_automate_cellulaire": {
+        "wolframe_automata_2D": {
+          "link": ""
+        }
+      }
+    }
+  }
+}

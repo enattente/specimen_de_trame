@@ -1,0 +1,148 @@
+Classe : Area
+
+Paramètres du constructeur :
+*   x (valeur par défaut : 0)
+*   y (valeur par défaut : 0)
+*   width (valeur par défaut : 10)
+*   height (valeur par défaut : 10)
+*   color (valeur par défaut : 0)
+*   detail (valeur par défaut : 0)
+*   nb_particules (valeur par défaut : 0)
+*   nb_childs (valeur par défaut : 0)
+*   particule_size_width (valeur par défaut : 1)
+*   particule_size_height (valeur par défaut : 1)
+*   line_thickness (valeur par défaut : 1)
+
+Méthodes :
+*   draw_on_buffer_particule_pixels(buffer) : Dessine des particules sur le buffer.
+    *   Paramètres : buffer
+*   draw_on_buffer_applat_couleur(buffer) : Dessine une couleur uniforme sur le buffer.
+    *   Paramètres : buffer
+*   draw_on_buffer_cross_diagonal(buffer) : Dessine une croix diagonale sur le buffer.
+    *   Paramètres : buffer
+*   draw_on_buffer_cross_droite(buffer) : Dessine une croix droite sur le buffer.
+    *   Paramètres : buffer
+*   draw_on_buffer_ellipse(buffer) : Dessine des ellipses sur le buffer.
+    *   Paramètres : buffer
+*   get nb_childs() : Retourne le nombre d'enfants.
+    *   Paramètres : Aucun
+*   get detail() : Retourne le niveau de détail.
+    *   Paramètres : Aucun
+
+---
+
+Classe : Rules
+
+Paramètres du constructeur :
+*   map
+*   rules_max (valeur par défaut : 0)
+*   rules_min (valeur par défaut : 0)
+
+Méthodes :
+*   _generate_default_rule_value(index, total_rules) : Génère une valeur pour une règle en fonction de l'index et du nombre total de règles.
+    *   Paramètres : index, total_rules
+*   set_by_default_ramp() : Applique la méthode _generate_default_rule_value à chaque règle pour créer une rampe par défaut.
+    *   Paramètres : Aucun
+*   update_nb_rules(new_nb_rules) : Change le nombre de règles.
+    *   Paramètres : new_nb_rules
+*   update_intervalle_rules(rules_max=0, rules_min=0) : Change l'intervalle de valeur des règles.
+    *   Paramètres : rules_max (valeur par défaut : 0), rules_min (valeur par défaut : 0)
+*   update_one_rule(n, new_value) : Change la valeur d'une règle spécifique.
+    *   Paramètres : n, new_value
+*   get_rule(n) : Renvoie la règle en fonction de l'index.
+    *   Paramètres : n
+*   get_all_rules() : Renvoie toutes les règles.
+    *   Paramètres : Aucun
+
+---
+
+Classe : MapImage
+
+Paramètres du constructeur :
+*   nb_value (valeur par défaut : 8)
+*   valeur_source_min (valeur par défaut : 0)
+*   valeur_source_max (valeur par défaut : 255)
+
+Méthodes :
+*   set_by_default_seuils() : Crée des seuils par défaut.
+    *   Paramètres : Aucun
+*   _prepare_image_analysis(img, stepsize_width, stepsize_height) : Méthode privée pour initialiser et préparer l'analyse d'image.
+    *   Paramètres : img, stepsize_width, stepsize_height
+*   _collect_brightness_values(x, y) : Méthode privée pour collecter les valeurs de luminosité d'une portion d'image.
+    *   Paramètres : x, y
+*   _calculate_average_brightness(x, y) : Méthode pour calculer la luminosité moyenne d'une portion.
+    *   Paramètres : x, y
+*   _calculate_standard_deviation(x, y) : Méthode pour calculer l'écart-type (standard deviation) d'une portion.
+    *   Paramètres : x, y
+*   make_map_brightness(img, stepsize_width, stepsize_height) : Crée la carte de luminosité en fonction de l'image et du stepsize.
+    *   Paramètres : img, stepsize_width, stepsize_height
+*   make_map_detail(img, stepsize_width, stepsize_height) : Crée la carte de détail en fonction de l'image et du stepsize.
+    *   Paramètres : img, stepsize_width, stepsize_height
+*   get_value_map() : Renvoie la carte de valeurs.
+    *   Paramètres : Aucun
+*   update_nb_value(nb_value) : Permet de changer le nombre de valeurs et donc le nombre de seuils.
+    *   Paramètres : nb_value
+*   change_one_seuil(num_seuil, new_value) : Permet de changer une valeur d'un seuil.
+    *   Paramètres : num_seuil, new_value
+*   get_seuils() : Renvoie les seuils.
+    *   Paramètres : Aucun
+*   rescale_value_by_seuil(n) : Renvoie la valeur d'un seuil en fonction de la valeur de la carte.
+    *   Paramètres : n
+
+---
+
+Classe : Registre_Area_Visited
+
+Paramètres du constructeur :
+*   maxVisited (valeur par défaut : 3000)
+
+Méthodes :
+*   add_visited_area(x, y) : Ajoute une zone visitée au registre.
+    *   Paramètres : x, y
+*   verify_collision_between_area(x, y) : Retourne true si la zone est déjà visitée.
+    *   Paramètres : x, y
+*   reset() : Réinitialise le registre.
+    *   Paramètres : Aucun
+
+---
+
+Classe : Registre_Area_Visited (Note: Il y a un doublon de nom de classe, mais les fonctionnalités sont différentes)
+
+Paramètres du constructeur :
+*   profondeur_memoire (valeur par défaut : 2)
+
+Méthodes :
+*   get_parents() : Concatène toutes les générations stockées dans parents_history en un seul tableau.
+    *   Paramètres : Aucun
+*   add_child(new_child) : Ajoute un nouvel enfant.
+    *   Paramètres : new_child
+*   switch_generation() : Passe à la génération suivante, gère l'historique des parents.
+    *   Paramètres : Aucun
+*   reset() : Réinitialise les enfants et l'historique des parents.
+    *   Paramètres : Aucun
+
+---
+
+Classe : Navigation
+
+Paramètres du constructeur :
+*   registre
+*   map_image
+
+Méthodes :
+*   define_size(x_size, y_size) : Définit les dimensions de la zone de navigation.
+    *   Paramètres : x_size, y_size
+*   update_itineraires(destinations_x, destinations_y) : Met à jour les itinéraires de destination.
+    *   Paramètres : destinations_x, destinations_y
+*   get_itineraire_result(x, y) : Calcule et retourne la prochaine destination valide en fonction de la position actuelle, des itinéraires et des zones visitées.
+    *   Paramètres : x, y
+*   get_itineraires() : Renvoie les itinéraires.
+    *   Paramètres : Aucun
+*   update_nb_child(nb_childs, probas) : Met à jour le nombre d'enfants avec leurs probabilités.
+    *   Paramètres : nb_childs, probas
+*   get_nb_child_result() : Choisit un nombre d'enfants en fonction des probabilités.
+    *   Paramètres : Aucun
+*   get_nb_child() : Renvoie le tableau des nombres d'enfants avec leurs probabilités.
+    *   Paramètres : Aucun
+*   pick_by_proba(liste) : Sélectionne un élément d'une liste en fonction de sa probabilité.
+    *   Paramètres : liste 

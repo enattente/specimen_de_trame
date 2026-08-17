@@ -1,0 +1,90 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body, html {
+height: 100%;
+}
+#top, #bottom {
+width: 100vw;
+height: 100vh;
+display: flex;
+
+}
+
+#top {
+background-color: #e0e0e0;
+}
+
+#visionneuse {
+width: 80%;
+}
+
+#parametres-generaux {
+width: 20%;
+background-color: #a6a6a6;
+}
+
+#bottom {
+background-color: #f0f0f0;
+display: flex;
+flex-direction: row;
+}
+
+
+
+
+
+#zone-2D {
+width: 60%;
+height: 100%;
+
+display: flex;
+flex-direction: column;
+}
+#rule-horizontal {
+width: 100%;
+height: 30%;
+
+writing-mode: vertical-lr;
+display: flex;
+flex-wrap: wrap;
+}
+
+#parametre-2D {
+width: 100%;
+height: 10%;
+background-color: #4d4d4d;
+}
+
+
+
+#seuil-horizontal {
+width: 100%;
+height: 30%;
+
+}
+
+#representation-2D {
+width: 100%;
+height: 30%;
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#seuil-vertical, #rules-vertical {
+width: 20%;
+height: 100%;
+
+}
+
+#rules-vertical {
+
+    display: flex;
+    flex-wrap: wrap;
+}

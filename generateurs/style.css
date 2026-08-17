@@ -1,0 +1,132 @@
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+body, html {
+height: 100%;
+  text-align: left;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 13.5px;
+  line-height: 15px;
+}
+#top, #bottom {
+width: 100vw;
+height: 100vh;
+display: flex;
+
+}
+
+#top {
+background-color: #e0e0e0;
+}
+  #visionneuse {
+  width: 80%;
+  }
+
+  #parametres-generaux {
+  width: 20%;
+  background-color: #a6a6a6;
+  padding: 10px;
+  overflow-y: auto; 
+
+  }
+
+#parametres-generaux input[type="number"] {
+  width: 100%;
+  
+}
+
+/* Style commun pour tous les boutons et le sélecteur de fichier */
+#parametres-generaux button,
+.file-label {
+  display: block;
+  width: 75%;
+  padding: 3px 3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #a6a6a6; /* Couleur de fond standard des boutons Windows */
+  border: 1px solid; /* Définit une bordure solide de 2px */
+  border-top-color: #808080; /* Bordure supérieure claire pour l'effet 3D "relevé" */
+  border-left-color: #808080; /* Bordure gauche claire pour l'effet 3D "relevé" */
+  border-right-color: #ffffff; /* Bordure droite foncée pour l'effet 3D "relevé" */
+  border-bottom-color: #ffffff; /* Bordure inférieure foncée pour l'effet 3D "relevé" */
+  border-radius: 2.5px; 
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Calendas Plus', sans-serif;
+  font-size: 0.95em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Suppression des styles non conformes au look Old Windows (ombres et dégradés) */
+  box-shadow: none;
+  background-image: none;
+}
+
+#parametres-generaux button:hover,
+.file-label:hover {
+  background-color: #c8c8c8;
+  background-image: linear-gradient(to bottom, #d0d0d0, #c0c0c0);
+}
+
+#parametres-generaux button:active,
+.file-label:active {
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3),
+              inset -1px -1px 2px rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(to bottom, #c0c0c0, #d0d0d0);
+}
+
+#parametres-generaux input[type="file"] {
+  display: none; /* Cache l'input file original */
+}
+
+/* Style pour l'affichage du nom de fichier */
+.file-name {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 3px 6px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+#bottom {
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+}
+
+#interface-seuils-map_image {
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  display: flex;
+}
+
+#parametres-generaux h1 {
+  text-align: center;
+}
+
+/* Style pour souligner les textes des paragraphes */
+#parametres-generaux p {
+  text-decoration: underline;
+  text-decoration-thickness: 1.4px; /* Épaissit le soulignement */
+  text-underline-offset: 3px; /* Éloigne le soulignement du texte */
+  font-weight: normal;
+  margin-top: 8px;
+  margin-bottom: 3px;
+}
+

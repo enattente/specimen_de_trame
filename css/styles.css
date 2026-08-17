@@ -1,0 +1,139 @@
+/*
+* ===========================================
+* Styles CSS
+* ===========================================
+*/
+
+/* Corps de la page */
+
+
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    font-weight: normal;
+    font-size: 13.5px;
+    line-height: 15px;  
+}
+
+header {
+    padding-top : 12px;
+    padding: 8px;
+    width: 100%;
+    padding-bottom: 30px;
+    background-color: #ffff;
+}
+
+footer {
+    width: 100%;
+    padding: 8px;
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+
+#tableau-arborescence {
+    width: 100%;
+    box-sizing: border-box;
+    container-type: inline-size;
+    background-color: #aeaeae;
+}
+
+#tableau-arborescence > div {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+
+.ligne_division{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 8.5px;
+}
+
+.ligne_division > div {
+    flex: 0 1 auto;
+}
+
+
+.hauteur_division{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.hauteur_division_importante{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+
+.important_tableau{
+    /* padding-left: 2px; */
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.hover-highlight > .important_tableau {
+    box-sizing: border-box;
+    background-color: #ffea73!important;
+}
+
+.detail {
+    display: none;
+}
+
+.detail.visible {
+    display: block;
+}
+
+#ici {
+    cursor: pointer;
+}
+
+
+.thumbnail {
+    width: clamp(75px, 12.5vw, 350px);
+    height: auto;
+    object-fit: cover;
+}
+
+
+.error {
+    color: #ffe656;
+}
+
+a {
+    color: #0000EE;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+a:hover {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #FF0000;
+}
+
+.link {
+    color: #0000EE;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
